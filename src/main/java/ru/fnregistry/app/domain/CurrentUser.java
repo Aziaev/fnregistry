@@ -1,4 +1,4 @@
-package ru.inovus.ziaevtestapp.domain;
+package ru.fnregistry.app.domain;
 
 import org.springframework.security.core.authority.AuthorityUtils;
 

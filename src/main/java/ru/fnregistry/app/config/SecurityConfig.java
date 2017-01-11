@@ -1,4 +1,4 @@
-package ru.inovus.ziaevtestapp.config;
+package ru.fnregistry.app.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;

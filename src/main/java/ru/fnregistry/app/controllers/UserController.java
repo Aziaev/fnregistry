@@ -1,10 +1,10 @@
-package ru.inovus.ziaevtestapp.controllers;
+package ru.fnregistry.app.controllers;
 
 import lombok.extern.apachecommons.CommonsLog;
 import lombok.extern.log4j.Log4j;
-import ru.inovus.ziaevtestapp.domain.UserCreateForm;
-import ru.inovus.ziaevtestapp.domain.validator.UserCreateFormValidator;
-import ru.inovus.ziaevtestapp.service.user.UserService;
+import ru.fnregistry.app.domain.UserCreateForm;
+import ru.fnregistry.app.domain.validator.UserCreateFormValidator;
+import ru.fnregistry.app.service.user.UserService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

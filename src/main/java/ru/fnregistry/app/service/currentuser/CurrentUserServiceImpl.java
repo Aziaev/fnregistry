@@ -1,7 +1,7 @@
-package ru.inovus.ziaevtestapp.service.currentuser;
+package ru.fnregistry.app.service.currentuser;
 
-import ru.inovus.ziaevtestapp.domain.CurrentUser;
-import ru.inovus.ziaevtestapp.domain.Role;
+import ru.fnregistry.app.domain.CurrentUser;
+import ru.fnregistry.app.domain.Role;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

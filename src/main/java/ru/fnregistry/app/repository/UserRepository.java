@@ -1,8 +1,8 @@
-package ru.inovus.ziaevtestapp.repository;
+package ru.fnregistry.app.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import ru.inovus.ziaevtestapp.domain.User;
+import ru.fnregistry.app.domain.User;
 
 import java.util.Optional;
 

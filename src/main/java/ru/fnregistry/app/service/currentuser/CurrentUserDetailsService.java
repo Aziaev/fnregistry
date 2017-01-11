@@ -1,8 +1,8 @@
-package ru.inovus.ziaevtestapp.service.currentuser;
+package ru.fnregistry.app.service.currentuser;
 
-import ru.inovus.ziaevtestapp.domain.CurrentUser;
-import ru.inovus.ziaevtestapp.domain.User;
-import ru.inovus.ziaevtestapp.service.user.UserService;
+import ru.fnregistry.app.domain.CurrentUser;
+import ru.fnregistry.app.domain.User;
+import ru.fnregistry.app.service.user.UserService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

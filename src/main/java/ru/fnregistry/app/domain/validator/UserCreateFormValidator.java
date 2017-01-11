@@ -1,4 +1,4 @@
-package ru.inovus.ziaevtestapp.domain.validator;
+package ru.fnregistry.app.domain.validator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -7,8 +7,8 @@ import org.springframework.validation.Errors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ru.inovus.ziaevtestapp.domain.UserCreateForm;
-import ru.inovus.ziaevtestapp.service.user.UserService;
+import ru.fnregistry.app.domain.UserCreateForm;
+import ru.fnregistry.app.service.user.UserService;
 
 @Component
 public class UserCreateFormValidator implements org.springframework.validation.Validator {

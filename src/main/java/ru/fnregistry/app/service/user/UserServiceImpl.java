@@ -1,4 +1,4 @@
-package ru.inovus.ziaevtestapp.service.user;
+package ru.fnregistry.app.service.user;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -10,11 +10,12 @@ import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ru.inovus.ziaevtestapp.domain.CurrentUser;
-import ru.inovus.ziaevtestapp.domain.User;
-import ru.inovus.ziaevtestapp.domain.UserCreateForm;
-import ru.inovus.ziaevtestapp.repository.UserRepository;
+import ru.fnregistry.app.domain.CurrentUser;
+import ru.fnregistry.app.domain.User;
+import ru.fnregistry.app.domain.UserCreateForm;
+import ru.fnregistry.app.repository.UserRepository;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -51,6 +52,11 @@ public class UserServiceImpl implements UserService {
     public User create(UserCreateForm form) {
         User user = new User();
         user.setEmail(form.getEmail());
+        user.setSurname(form.getSurname());
+        user.setFirstname(form.getFirstname());
+        user.setPatronymic(form.getPatronymic());
+        String birthdate = form.getBirthdate();
+        user.setBirthdate(birthdate);
         user.setPasswordHash(new BCryptPasswordEncoder().encode(form.getPassword()));
         user.setRole(form.getRole());
         LOGGER.info("User " + form.getEmail() + " added");
@@ -62,6 +68,10 @@ public class UserServiceImpl implements UserService {
         String username = auth.getName();
         if (!username.equals("anonymousUser")) username = username.substring(0, username.indexOf("@"));
         return username;
+    }
+
+    public static String getFirstnameAndPatronyme(){
+        return "Иван Иваныч";
     }
 
     public static Long getUserId() {

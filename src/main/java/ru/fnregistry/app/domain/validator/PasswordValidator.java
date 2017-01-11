@@ -1,4 +1,4 @@
-package ru.inovus.ziaevtestapp.domain.validator;
+package ru.fnregistry.app.domain.validator;
 
 
 import org.slf4j.Logger;

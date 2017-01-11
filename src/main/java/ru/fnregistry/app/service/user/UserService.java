@@ -1,7 +1,7 @@
-package ru.inovus.ziaevtestapp.service.user;
+package ru.fnregistry.app.service.user;
 
-import ru.inovus.ziaevtestapp.domain.User;
-import ru.inovus.ziaevtestapp.domain.UserCreateForm;
+import ru.fnregistry.app.domain.User;
+import ru.fnregistry.app.domain.UserCreateForm;
 
 import java.util.Collection;
 import java.util.Optional;

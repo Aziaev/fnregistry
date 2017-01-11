@@ -1,14 +1,15 @@
-package ru.inovus.ziaevtestapp.domain;
+package ru.fnregistry.app.domain;
 
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
+@Table(name = "users")
 @Getter
 @Setter
-@Table(name = "user")
 public class User {
 
     @Id
@@ -18,6 +19,18 @@ public class User {
 
     @Column (name = "email", nullable = false, unique = true)
     private String email;
+
+    @Column (name = "surname")
+    private String surname;
+
+    @Column (name = "firstname", nullable = false)
+    private String firstname;
+
+    @Column (name = "patronymic")
+    private String patronymic;
+
+    @Column (name = "birthdate")
+    private String birthdate;
 
     @Column(name = "password_hash", nullable = false)
     private String passwordHash;

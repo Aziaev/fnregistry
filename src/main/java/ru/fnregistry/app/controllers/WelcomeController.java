@@ -1,4 +1,4 @@
-package ru.inovus.ziaevtestapp.controllers;
+package ru.fnregistry.app.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Calendar;
 
-import static ru.inovus.ziaevtestapp.service.user.UserServiceImpl.getUserId;
-import static ru.inovus.ziaevtestapp.service.user.UserServiceImpl.getUsername;
+import static ru.fnregistry.app.service.user.UserServiceImpl.getUserId;
+import static ru.fnregistry.app.service.user.UserServiceImpl.getUsername;
 
 @RequestMapping("/")
 @Controller
