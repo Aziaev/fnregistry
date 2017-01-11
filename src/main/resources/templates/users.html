@@ -3,26 +3,47 @@
       xmlns:th="http://www.w3.org/1999/xhtml"
       layout:decorator="layout">
 <div layout:fragment="content">
-    <div class="section white">
-        <div class="row container rowmain valign-wrapper">
-            <table>
+    <div class="container">
+        <div class="row">
+            <h2>Реестр пользователей</h2>
+        </div>
+        <div class="row">
+            <table class="highlight">
                 <thead>
                 <tr>
-                    <th>E-mail</th>
-                    <th>Role</th>
+                    <th>ФИО</th>
+                    <th>Дата рождения</th>
+                    <th>Статус запроса ИНН</th>
+                    <th>Детали</th>
                 </tr>
                 </thead>
                 <tbody>
-                <h2>Реестр пользователей</h2>
-                    <tr>
-                        <!--<td><a href="/user/${user.id}"><span th:text="${user.email}"></span></a></td>-->
-                        <td><span th:text="${user.surname}"></span></td>
-                        <td><span th:text="${user.firstname}"></span></td>
-                        <td><span th:text="${user.patronymic}"></span></td>
-                        <td><span th:text="${user.role}"></span></td>
-                    </tr>
+                <tr data-th-each="user : ${users}">
+                    <!--<td><a href="/user/${user.id}"><span th:text="${user.email}"></span></a></td>-->
+                    <td>
+                        <p th:text="${user.surname}"></p>
+                        <p th:text="${user.firstname}"></p>
+                        <p th:text="${user.patronymic}"></p>
+                    </td>
+                    <td>
+                        <p th:text="${user.birthdate}"></p>
+                    </td>
+                    <td>
+                        <p>Информация не получена</p>
+                        <a href="/" class="brand-logo">Отправить запрос</a>
+                    </td>
+                    <td>
+                        <p th:text="${user.role}"></p>
+                        <p th:text="${user.email}"></p>
+                    </td>
+                </tr>
                 </tbody>
             </table>
+
+            <!-- Modal buttons -->
+            <div class="fixed-action-btn">
+                <a class="btn-floating btn-large waves-effect waves  light red" href="users/add"><i class="material-icons">add</i></a>
+            </div>
         </div>
     </div>
 </div>

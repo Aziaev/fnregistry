@@ -13,7 +13,7 @@ $(document).ready(function(){
     $('.tooltipped').tooltip({delay: 50});
 });
 
-//Datepicker
+// Datepicker
 $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 100, // Creates a dropdown of 15 years to control year
@@ -31,5 +31,11 @@ $('.datepicker').pickadate({
     today: '',
     clear: 'Очистить',
     close: 'Сохранить',
-    format: 'yyyy-mm-dd' // LocalDate format 2007-12-03
+    format: 'dd.mm.yyyy' // date format 11 января 2016
+});
+
+// Modal init
+$(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
 });
