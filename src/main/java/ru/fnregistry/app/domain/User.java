@@ -32,6 +32,12 @@ public class User {
     @Column (name = "birthdate")
     private String birthdate;
 
+    @Column (name = "tin")
+    private int tin;
+
+    @Column (name = "status")
+    private int status;
+
     @Column(name = "password_hash", nullable = false)
     private String passwordHash;
 

@@ -7,14 +7,24 @@
         <div class="row">
             <h2>Реестр пользователей</h2>
         </div>
+        ...
+        60 Запрос не отправлен<br/>
+        61 Запрос отправлен<br/>
+        62 Запрос получен<br/>
+        01 Информация не найдена<br/>
+        52 Ответ не готов<br/>
+        83 Некорректный запрос<br/>
+        99 Системная ошибка<br/>
+        ...
         <div class="row">
             <table class="highlight">
                 <thead>
                 <tr>
                     <th>ФИО</th>
                     <th>Дата рождения</th>
-                    <th>Статус запроса ИНН</th>
-                    <th>Детали</th>
+                    <th>ИНН</th>
+                    <th>Статус запроса</th>
+                    <th>Тип пользователя / email</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -29,7 +39,10 @@
                         <p th:text="${user.birthdate}"></p>
                     </td>
                     <td>
-                        <p>Информация не получена</p>
+                        <p th:text="${user.tin} != 0 ? ${user.tin} : ${'ИНН не получен'}"></p>
+                    </td>
+                    <td>
+                        <p th:text="${user.status}"></p>
                         <a href="/" class="brand-logo">Отправить запрос</a>
                     </td>
                     <td>
@@ -39,10 +52,10 @@
                 </tr>
                 </tbody>
             </table>
-
             <!-- Modal buttons -->
             <div class="fixed-action-btn">
-                <a class="btn-floating btn-large waves-effect waves  light red" href="users/add"><i class="material-icons">add</i></a>
+                <a class="btn-floating btn-large waves-effect waves  light red" href="users/add"><i
+                        class="material-icons">add</i></a>
             </div>
         </div>
     </div>
