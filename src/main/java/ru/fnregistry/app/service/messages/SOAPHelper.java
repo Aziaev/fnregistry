@@ -27,10 +27,11 @@ import static ru.gosuslugi.smev.rev111111.TypeCodeType.GSRV;
  */
 public class SOAPHelper {
 
-    public HashMap<String, Integer> SOAPSendRequestOrCheckResponse(long userId, User user){
+    public HashMap<String, Integer> SOAPSendRequestOrCheckResponse(long userId, UserRepository repository){
 
-        BigInteger status = user.getStatus();
-        BigInteger requestId = user.getRequestId();
+        BigInteger status = repository.findOne(userId).getStatus();
+        BigInteger requestId = repository.findOne(userId).getRequestId();
+        User user = repository.findOne(userId);
 
         // Map for responce
         HashMap<String, Integer> response = new HashMap<>();
@@ -69,10 +70,10 @@ public class SOAPHelper {
         // Creating <MessageData>
         Äîêóìåíò äîêóìåíòQueryRequest = objectFactoryQueryRequest.createÄîêóìåíò();
         Äîêóìåíò.ÑâÔË ñâÔËQueryRequest = objectFactoryQueryRequest.createÄîêóìåíòÑâÔË();
-        ñâÔËQueryRequest.setÄàòàĞîæä(user.getBirthdate());
-        ñâÔËQueryRequest.setÔàìèëèÿ(user.getSurname());
-        ñâÔËQueryRequest.setÈìÿ(user.getFirstname());
-        ñâÔËQueryRequest.setÎò÷åñòâî(user.getPatronymic());
+        ñâÔËQueryRequest.setÄàòàĞîæä(repository.findOne(userId).getBirthdate());
+        ñâÔËQueryRequest.setÔàìèëèÿ(repository.findOne(userId).getSurname());
+        ñâÔËQueryRequest.setÈìÿ(repository.findOne(userId).getFirstname());
+        ñâÔËQueryRequest.setÎò÷åñòâî(repository.findOne(userId).getPatronymic());
         äîêóìåíòQueryRequest.setÑâÔË(ñâÔËQueryRequest);
         äîêóìåíòQueryRequest.setÂåğñÔîğì("4.01");
 
@@ -113,7 +114,8 @@ public class SOAPHelper {
 
             //Saving response ID
             user.setRequestId(responseÄîêóìåíò.getÈäÇàïğîñÔ());
-            System.out.println("ÈäÇàïğîñÔ = " + responseÄîêóìåíò.getÈäÇàïğîñÔ());
+            repository.save(user);
+            System.out.println("\nÈäÇàïğîñÔ = " + responseÄîêóìåíò.getÈäÇàïğîñÔ());
 
             soapConnection.close();
         } catch (SOAPException e) {
