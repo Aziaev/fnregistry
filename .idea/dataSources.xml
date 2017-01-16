@@ -7,5 +7,17 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/fnrdb</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="PostgreSQL - fnrdb@localhost [2]" uuid="1d9d99a3-3200-4842-a585-41a10e50c884">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/fnrdb</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="PostgreSQL - fnrdb@localhost [3]" uuid="09a7329c-a278-4f5d-8529-85ec9dd9bd63">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/fnrdb</jdbc-url>
+    </data-source>
   </component>
 </project>

@@ -7,15 +7,6 @@
         <div class="row">
             <h2>Реестр пользователей</h2>
         </div>
-        ...
-        60 Запрос не отправлен<br/>
-        61 Запрос отправлен<br/>
-        62 Запрос получен<br/>
-        01 Информация не найдена<br/>
-        52 Ответ не готов<br/>
-        83 Некорректный запрос<br/>
-        99 Системная ошибка<br/>
-        ...
         <div class="row">
             <table class="highlight">
                 <thead>
@@ -39,11 +30,17 @@
                         <p th:text="${user.birthdate}"></p>
                     </td>
                     <td>
-                        <p th:text="${user.tin} != 0 ? ${user.tin} : ${'ИНН не получен'}"></p>
+                        <p th:text="${user.tin} != 0 ? ${user.tin} : ${'ИНН не доступен'}"></p>
                     </td>
                     <td>
-                        <p th:text="${user.status}"></p>
-                        <a href="/" class="brand-logo">Отправить запрос</a>
+                        <p th:text="${user.status} == 60 ? ${'Запрос не отправлен'} + ' ' + '(' + ${user.status} + ')' : ''"></p>
+                        <p th:text="${user.status} == 61 ? ${'Запрос отправлен'}  + ' ' + '(' + ${user.status} + ')' : ''"></p>
+                        <p th:text="${user.status} == 62 ? ${'Запрос отправлен'}  + ' ' + '(' + ${user.status} + ')' : ''"></p>
+                        <p th:text="${user.status} == 1 ? ${'Информация не найдена'}  + ' ' + '(' + ${user.status} + ')' : ''"></p>
+                        <p th:text="${user.status} == 52 ? ${'Ответ не готов'}  + ' ' + '(' + ${user.status} + ')' : ''"></p>
+                        <p th:text="${user.status} == 83 ? ${'Некорректный запрос'}  + ' ' + '(' + ${user.status} + ')' : ''"></p>
+                        <p th:text="${user.status} == 99 ? ${'Системная ошибка'}  + ' ' + '(' + ${user.status} + ')' : ''"></p>
+                        <a th:href="@{'/users/request/{id}' (id=${user.id})}" class="send">Отправить запрос</a>
                     </td>
                     <td>
                         <p th:text="${user.role}"></p>

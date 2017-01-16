@@ -25,12 +25,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "/welcome").permitAll()
                 .antMatchers("/icons/**").permitAll()
                 .antMatchers("/fonts/**").permitAll()
+                .antMatchers("/users/**").permitAll() // remove on release!
+                .antMatchers("/users").permitAll() // remove on release!
                 .antMatchers("/sign-up/**").permitAll()
                 .anyRequest().fullyAuthenticated()
                 .and()
                 .formLogin()
                 .loginPage("/sign-in")
-                .defaultSuccessUrl("/welcome")
+                .defaultSuccessUrl("/users")
                 .failureUrl("/sign-in?error")
                 .usernameParameter("email")
                 .permitAll()

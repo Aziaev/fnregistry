@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.math.BigInteger;
 
 @Entity
 @Table(name = "users")
@@ -36,7 +36,10 @@ public class User {
     private int tin;
 
     @Column (name = "status")
-    private int status;
+    private BigInteger status;
+
+    @Column (name = "requestId")
+    private BigInteger requestId;
 
     @Column(name = "password_hash", nullable = false)
     private String passwordHash;

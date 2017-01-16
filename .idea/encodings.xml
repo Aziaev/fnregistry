@@ -2,5 +2,34 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/fnregistry/app/ObjectFactory.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/fnregistry/app/controllers/UsersController.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/fnregistry/app/docs/queryRequest/ObjectFactory.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/fnregistry/app/docs/queryRequest/Документ.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/fnregistry/app/service/messages/SOAPHelper.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/fnregistry/app/Документ.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/gosuslugi/smev/rev111111/GetResponseType.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/gosuslugi/smev/rev111111/GetType.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/gosuslugi/smev/rev111111/MessageClassType.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/gosuslugi/smev/rev111111/OrgExternalType.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/gosuslugi/smev/rev111111/QueryResponseType.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/gosuslugi/smev/rev111111/QueryType.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/gosuslugi/smev/rev111111/StatusType.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/gosuslugi/smev/rev111111/TypeCodeType.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/unisoft/ws/innfiodr/get/rq/ObjectFactory.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/unisoft/ws/innfiodr/get/rq/Документ.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/unisoft/ws/innfiodr/get/rq/Документ.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/unisoft/ws/innfiodr/get/rs/ObjectFactory.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/unisoft/ws/innfiodr/get/rs/ObjectFactory.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/unisoft/ws/innfiodr/get/rs/Документ.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/unisoft/ws/innfiodr/get/rs/Документ.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/unisoft/ws/innfiodr/query/rq/ObjectFactory.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/unisoft/ws/innfiodr/query/rq/ObjectFactory.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/unisoft/ws/innfiodr/query/rq/Документ.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/unisoft/ws/innfiodr/query/rq/Документ.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/unisoft/ws/innfiodr/query/rs/ObjectFactory.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/unisoft/ws/innfiodr/query/rs/ObjectFactory.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/unisoft/ws/innfiodr/query/rs/Документ.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/unisoft/ws/innfiodr/query/rs/Документ.java" charset="windows-1251" />
   </component>
 </project>

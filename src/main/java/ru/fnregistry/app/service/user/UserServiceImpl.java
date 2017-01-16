@@ -15,6 +15,7 @@ import ru.fnregistry.app.domain.User;
 import ru.fnregistry.app.domain.UserCreateForm;
 import ru.fnregistry.app.repository.UserRepository;
 
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Optional;
@@ -57,8 +58,9 @@ public class UserServiceImpl implements UserService {
         user.setPatronymic(form.getPatronymic());
         user.setBirthdate(form.getBirthdate().toString());
         user.setPasswordHash(new BCryptPasswordEncoder().encode(form.getPassword()));
-        user.setStatus(60);
+        user.setStatus(BigInteger.valueOf(60l));
         user.setTin(0);
+        user.setRequestId(BigInteger.valueOf(60l));
         user.setRole(form.getRole());
         LOGGER.info("User " + form.getEmail() + " added");
         return userRepository.save(user);
@@ -71,7 +73,7 @@ public class UserServiceImpl implements UserService {
         return username;
     }
 
-    public static String getFirstnameAndPatronyme(){
+    public static String getFirstnameAndPatronymic(){
         return "Иван Иваныч";
     }
 
