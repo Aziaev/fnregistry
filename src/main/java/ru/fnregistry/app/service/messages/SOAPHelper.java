@@ -4,6 +4,7 @@ import com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl
 import org.springframework.beans.factory.annotation.Autowired;
 import org.w3._2004._08.xop.include.Include;
 import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
 import ru.fnregistry.app.domain.User;
 import ru.fnregistry.app.repository.UserRepository;
 import ru.gosuslugi.smev.rev111111.*;
@@ -11,6 +12,7 @@ import unisoft.ws.innfiodr.query.rq.Документ;
 
 import javax.xml.bind.*;
 import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.namespace.QName;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.soap.*;
@@ -90,6 +92,17 @@ public class SOAPHelper {
         try {
             soapConnectionFactory = SOAPConnectionFactory.newInstance();
             SOAPConnection soapConnection = soapConnectionFactory.createConnection();
+            JAXBContext jc = JAXBContext.newInstance(
+                    HeaderType.class,
+                    QueryResponseType.class,
+                    QueryType.class,
+                    Include.class,
+                    Документ.class,
+                    AppDataType.class,
+                    AppDocumentType.class,
+                    unisoft.ws.innfiodr.query.rs.Документ.class);
+
+            Unmarshaller unmarshaller = jc.createUnmarshaller();
 
             // Send SOAP Message to SOAP Server
             String url = "http://pkd-dev.ru:18582/services/fns_inn_rd";
@@ -99,18 +112,23 @@ public class SOAPHelper {
             System.out.println("Response SOAP Message:");
             soapResponse.writeTo(System.out);
 
+            // Getting SOAP body for ИдЗапросФ
             SOAPBody responseBody = soapResponse.getSOAPBody();
             Document responseDocument = responseBody.extractContentAsDocument();
 
-            JAXBContext jc = JAXBContext.newInstance(QueryResponseType.class, QueryType.class, Include.class, Документ.class, AppDataType.class, AppDocumentType.class, unisoft.ws.innfiodr.query.rs.Документ.class);
-            Unmarshaller unmarshaller = jc.createUnmarshaller();
+            //Getting NodeID from Header
+            SOAPHeader responseHeaderSOAP = soapResponse.getSOAPHeader();
+            JAXBElement<HeaderType> responseHeaderTypeJAXB = unmarshaller.unmarshal(responseHeaderSOAP, HeaderType.class);
+            HeaderType responseHeader = responseHeaderTypeJAXB.getValue();
+            String nodeId = responseHeader.getNodeId();
+            System.out.println("\nnodeId = " + nodeId);
 
-            JAXBElement<QueryResponseType> responseQueryTypeJaxb = unmarshaller.unmarshal(responseDocument, QueryResponseType.class);
-            QueryResponseType responseQueryType = responseQueryTypeJaxb.getValue();
+            //Getting query response Документ
+            JAXBElement<QueryResponseType> responseQueryTypeJAXB = unmarshaller.unmarshal(responseDocument, QueryResponseType.class);
+            QueryResponseType responseQueryType = responseQueryTypeJAXB.getValue();
             MessageDataType responseMessageData = responseQueryType.getMessageData();
             AppDataType responseAppData = responseMessageData.getAppData();
             unisoft.ws.innfiodr.query.rs.Документ responseДокумент = (unisoft.ws.innfiodr.query.rs.Документ) responseAppData.getAny().get(0);
-
 
             //Saving response ID
             user.setRequestId(responseДокумент.getИдЗапросФ());

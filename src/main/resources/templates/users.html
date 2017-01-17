@@ -15,16 +15,17 @@
                     <th>Дата рождения</th>
                     <th>ИНН</th>
                     <th>Статус запроса</th>
-                    <th>Тип пользователя / email</th>
+                    <th>Идентификатор запроса</th>
+                    <th>Управление</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr data-th-each="user : ${users}">
                     <!--<td><a href="/user/${user.id}"><span th:text="${user.email}"></span></a></td>-->
                     <td>
-                        <p th:text="${user.surname}"></p>
-                        <p th:text="${user.firstname}"></p>
-                        <p th:text="${user.patronymic}"></p>
+                        <span th:text="${user.surname}"></span><br/>
+                        <span th:text="${user.firstname}"></span><br/>
+                        <span th:text="${user.patronymic}"></span><br/>
                     </td>
                     <td>
                         <p th:text="${user.birthdate}"></p>
@@ -43,8 +44,12 @@
                         <a th:href="@{'/users/request/{id}' (id=${user.id})}" class="send">Отправить запрос</a>
                     </td>
                     <td>
-                        <p th:text="${user.role}"></p>
-                        <p th:text="${user.email}"></p>
+                        <p th:text="${user.requestId} == 0 ? ${'Идентификатор не доступен'} : ${user.requestId} "></p>
+                    </td>
+                    <td>
+                        <a>Удаление пользователя</a><br/>
+                        <a>Изменить пользователя</a><br/>
+                        <a>Очистка запросов</a><br/>
                     </td>
                 </tr>
                 </tbody>
