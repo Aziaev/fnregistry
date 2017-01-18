@@ -34,14 +34,15 @@
                         <p th:text="${user.tin} != 0 ? ${user.tin} : ${'ИНН не доступен'}"></p>
                     </td>
                     <td>
-                        <p th:text="${user.status} == 60 ? ${'Запрос не отправлен'} + ' ' + '(' + ${user.status} + ')' : ''"></p>
-                        <p th:text="${user.status} == 61 ? ${'Запрос отправлен'}  + ' ' + '(' + ${user.status} + ')' : ''"></p>
-                        <p th:text="${user.status} == 62 ? ${'Запрос отправлен'}  + ' ' + '(' + ${user.status} + ')' : ''"></p>
-                        <p th:text="${user.status} == 1 ? ${'Информация не найдена'}  + ' ' + '(' + ${user.status} + ')' : ''"></p>
-                        <p th:text="${user.status} == 52 ? ${'Ответ не готов'}  + ' ' + '(' + ${user.status} + ')' : ''"></p>
-                        <p th:text="${user.status} == 83 ? ${'Некорректный запрос'}  + ' ' + '(' + ${user.status} + ')' : ''"></p>
-                        <p th:text="${user.status} == 99 ? ${'Системная ошибка'}  + ' ' + '(' + ${user.status} + ')' : ''"></p>
-                        <a th:href="@{'/users/request/{id}' (id=${user.id})}" class="send">Отправить запрос</a>
+                        <p th:text="${user.status} == 60 ? ${'Запрос не отправлен'} : ''"></p>
+                        <p th:text="${user.status} == 61 ? ${'Запрос отправлен'} : ''"></p>
+                        <p th:text="${user.status} == 62 ? ${'Запрос отправлен'} : ''"></p>
+                        <p th:text="${user.status} == 1 ? ${'Cведения не найдены'} : ''"></p>
+                        <p th:text="${user.status} == 52 ? ${'Ответ не готов'} : ''"></p>
+                        <p th:text="${user.status} == 83 ? ${'Некорректный запрос'} : ''"></p>
+                        <p th:text="${user.status} == 99 ? ${'Системная ошибка'} : ''">></p>
+                        <p th:text="${user.status} == 100 ? ${'Данные получены'} : ''">></p>
+                        <a th:href="@{'/users/request/{id}' (id=${user.id})}" class="send" th:text="${user.status} != 100 ? ${'Отправить запрос'} : ''">Отправить запрос</a>
                     </td>
                     <td>
                         <p th:text="${user.requestId} == 0 ? ${'Идентификатор не доступен'} : ${user.requestId} "></p>

@@ -33,13 +33,16 @@ public class User {
     private String birthdate;
 
     @Column (name = "tin")
-    private int tin;
+    private String tin;
 
     @Column (name = "status")
-    private BigInteger status;
+    private int status;
 
     @Column (name = "requestId")
     private BigInteger requestId;
+
+    @Column (name = "requestCode")
+    private int requestCode;
 
     @Column(name = "password_hash", nullable = false)
     private String passwordHash;

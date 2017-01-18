@@ -58,9 +58,10 @@ public class UserServiceImpl implements UserService {
         user.setPatronymic(form.getPatronymic());
         user.setBirthdate(form.getBirthdate().toString());
         user.setPasswordHash(new BCryptPasswordEncoder().encode(form.getPassword()));
-        user.setStatus(BigInteger.valueOf(60l));
-        user.setTin(0);
-        user.setRequestId(BigInteger.valueOf(60l));
+        user.setStatus(60);
+        user.setTin("0");
+        user.setRequestId(BigInteger.valueOf(60L));
+        user.setRequestCode(0);
         user.setRole(form.getRole());
         LOGGER.info("User " + form.getEmail() + " added");
         return userRepository.save(user);

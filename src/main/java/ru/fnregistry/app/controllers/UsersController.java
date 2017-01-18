@@ -43,8 +43,8 @@ public class UsersController {
     public ModelAndView sendRequest(@PathVariable long id) {
 
         SOAPHelper soapHelper = new SOAPHelper();
-        soapHelper.SOAPSendRequestOrCheckResponse(repository.findOne(id).getId(), repository);
+        soapHelper.SOAPSendAndGetRequest(repository.findOne(id).getId(), repository);
 
-        return new ModelAndView("users");
+        return new ModelAndView("redirect:/users/");
     }
 }
