@@ -74,10 +74,6 @@ public class UserServiceImpl implements UserService {
         return username;
     }
 
-    public static String getFirstnameAndPatronymic(){
-        return "Иван Иваныч";
-    }
-
     public static Long getUserId() {
         Long currentUserId = 0L;
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
