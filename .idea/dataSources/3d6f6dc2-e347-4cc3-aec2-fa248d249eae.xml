@@ -39,8 +39,8 @@
     <schema id="11" parent="4" name="public">
       <object-id>2200</object-id>
       <visible>1</visible>
-      <introspection-state-number>2208</introspection-state-number>
-      <introspection-timestamp>2017-01-17.22:34:37.479</introspection-timestamp>
+      <introspection-state-number>2235</introspection-state-number>
+      <introspection-timestamp>2017-01-18.23:10:54.720</introspection-timestamp>
     </schema>
     <schema id="12" parent="4" name="pg_catalog">
       <object-id>11</object-id>
@@ -79,7 +79,7 @@
     </table>
     <table id="22" parent="11" name="users">
       <object-id>42110</object-id>
-      <state-number>2201</state-number>
+      <state-number>2235</state-number>
     </table>
     <column id="23" parent="18" name="id">
       <state-number>2208</state-number>
@@ -241,16 +241,16 @@
       <data-type>integer|0</data-type>
     </column>
     <column id="56" parent="22" name="tin">
-      <state-number>2142</state-number>
+      <state-number>2234</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="57" parent="22" name="request_code">
+      <state-number>2235</state-number>
       <data-type>integer|0</data-type>
     </column>
-    <column id="57" parent="22" name="request_id">
+    <column id="58" parent="22" name="request_id">
       <state-number>2176</state-number>
       <data-type>integer|0</data-type>
-    </column>
-    <column id="58" parent="22" name="request_code">
-      <state-number>2201</state-number>
-      <data-type>numeric(19,2)|0</data-type>
     </column>
     <index id="59" parent="22" name="users_pkey">
       <object-id>42116</object-id>

@@ -63,6 +63,27 @@ public class UserController {
         }
         LOGGER.info("Success login");
         return "redirect:/sign-in";
-//        TODO: autologin
+    }
+
+    @PreAuthorize("isAuthenticated()")
+    @RequestMapping(value = "/users/add", method = RequestMethod.GET)
+    public ModelAndView getNewUserPage() {
+        LOGGER.info("Getting user create form");
+        return new ModelAndView("user_create", "form", new UserCreateForm());
+    }
+
+    @PreAuthorize("isAuthenticated()")
+    @RequestMapping(value = "/users/add", method = RequestMethod.POST)
+    public String newUser(@Valid @ModelAttribute("form") UserCreateForm form, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "user_create";
+        }
+        try {
+            userService.create(form);
+        } catch (DataIntegrityViolationException e) {
+            bindingResult.reject("name.exists", "Это имя уже используется");
+            return "user_create";
+        }
+        return "redirect:/users";
     }
 }

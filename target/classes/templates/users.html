@@ -15,7 +15,7 @@
                     <th>Дата рождения</th>
                     <th>ИНН</th>
                     <th>Статус запроса</th>
-                    <th>Идентификатор запроса</th>
+                    <!--<th>Идентификатор запроса</th>-->
                     <th>Управление</th>
                 </tr>
                 </thead>
@@ -36,28 +36,44 @@
                     <td>
                         <p th:text="${user.status} == 60 ? ${'Запрос не отправлен'} : ''"></p>
                         <p th:text="${user.status} == 61 ? ${'Запрос отправлен'} : ''"></p>
-                        <p th:text="${user.status} == 62 ? ${'Запрос отправлен'} : ''"></p>
                         <p th:text="${user.status} == 1 ? ${'Cведения не найдены'} : ''"></p>
                         <p th:text="${user.status} == 52 ? ${'Ответ не готов'} : ''"></p>
                         <p th:text="${user.status} == 83 ? ${'Некорректный запрос'} : ''"></p>
                         <p th:text="${user.status} == 99 ? ${'Системная ошибка'} : ''">></p>
                         <p th:text="${user.status} == 100 ? ${'Данные получены'} : ''">></p>
-                        <a th:href="@{'/users/request/{id}' (id=${user.id})}" class="send" th:text="${user.status} != 100 ? ${'Отправить запрос'} : ''">Отправить запрос</a>
+                        <!-- Refresh button text expressions -->
+                        <a th:href="@{'/users/request/{id}' (id=${user.id})}"
+                           class="send" th:text="
+                            ${user.status} != 100 ?
+                            (
+                                ${user.status} == 1 ?
+                                '' :
+                                (
+                                    ${user.status} == 60 ?
+                                    'Отправить запрос' :
+                                    'Обновить'
+                                )
+                            )
+                            : ''">
+                            Отправить запрос
+                        </a>
                     </td>
+                    <!--<td>-->
+                        <!--<p th:text="${user.requestId} == 0 ? ${'Идентификатор не доступен'} : ${user.requestId} "></p>-->
+                    <!--</td>-->
                     <td>
-                        <p th:text="${user.requestId} == 0 ? ${'Идентификатор не доступен'} : ${user.requestId} "></p>
-                    </td>
-                    <td>
-                        <a>Удаление пользователя</a><br/>
-                        <a>Изменить пользователя</a><br/>
-                        <a>Очистка запросов</a><br/>
+                        <a th:href="@{'/users/{id}/delete'(id=${user.id})}" class="delete">Удаление
+                            пользователя</a><br/>
+                        <a th:href="@{'/users/{id}/edit'(id=${user.id})}" class="delete">Изменение пользователя</a><br/>
+                        <a th:href="@{'/users/{id}/clear'(id=${user.id})}" class="delete">Очистка запросов</a><br/>
+<br/>
                     </td>
                 </tr>
                 </tbody>
             </table>
             <!-- Modal buttons -->
             <div class="fixed-action-btn">
-                <a class="btn-floating btn-large waves-effect waves  light red" href="users/add"><i
+                <a class="btn-floating btn-large waves-effect waves  light red" href="/users/add"><i
                         class="material-icons">add</i></a>
             </div>
         </div>

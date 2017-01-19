@@ -108,12 +108,7 @@ public class SOAPHelper {
             Unmarshaller unmarshaller = jc.createUnmarshaller();
 
             // Send SOAP Message to SOAP Server
-
             SOAPMessage soapResponse = soapConnection.call(createSOAPQuery(queryType), url);
-
-            // print SOAP Response
-//            System.out.println("Response SOAP Message:");
-//            soapResponse.writeTo(System.out);
 
             // Getting SOAP body for »‰«‡ÔÓÒ‘
             SOAPBody responseBody = soapResponse.getSOAPBody();
@@ -200,10 +195,6 @@ public class SOAPHelper {
             // Send SOAP Message to SOAP Server
             SOAPMessage soapResponse = soapConnection.call(createSOAPGet(getType), url);
 
-            // print SOAP Response
-            System.out.println("Response SOAP Message:");
-            soapResponse.writeTo(System.out);
-
             // Getting SOAP body for »‰«‡ÔÓÒ‘
             SOAPBody responseBody = soapResponse.getSOAPBody();
             Document responseDocument = responseBody.extractContentAsDocument();
@@ -223,12 +214,9 @@ public class SOAPHelper {
             } else {
                 user.setStatus(Integer.parseInt(responseƒÓÍÛÏÂÌÚ.get Ó‰Œ·()));
             }
-            System.out.println(" Ó‰Œ· = " + user.getStatus());
             repository.save(user);
             soapConnection.close();
         } catch (SOAPException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
             e.printStackTrace();
         } catch (JAXBException e) {
             e.printStackTrace();
@@ -263,13 +251,7 @@ public class SOAPHelper {
             soapBody.addDocument(document);
             soapMessage.saveChanges();
 
-        /* Print the request messageName */
-            System.out.println("Request SOAP Message:");
-            soapMessage.writeTo(System.out);
-            System.out.println();
         } catch (SOAPException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
             e.printStackTrace();
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
@@ -307,17 +289,11 @@ public class SOAPHelper {
             soapBody.addDocument(document);
             soapMessage.saveChanges();
 
-            System.out.println("Request SOAP Message:");
-            soapMessage.writeTo(System.out);
-            System.out.println();
-
         } catch (SOAPException e) {
             e.printStackTrace();
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         } catch (JAXBException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
             e.printStackTrace();
         }
         return soapMessage;
